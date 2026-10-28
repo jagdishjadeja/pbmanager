@@ -2,11 +2,36 @@
 
 An admin-only control plane for independent PocketBase instances, built with **Go + PocketBase** and an **Astro + TypeScript** dashboard.
 
+**[Try the interactive demo →](https://jagdishjadeja.github.io/pbmanager/)**
+
+The static demo uses browser-local sample data. Explore the dashboard, create or restart sample instances, and reset it anytime. It does not connect to a live management server.
+
+## Dashboard preview
+
+![PocketBase Manager dashboard showing instance status, CPU and memory usage, storage, and server health](docs/images/pocketbase-manager-dashboard.png)
+
+Manage your PocketBase instances and monitor server resources from one dashboard.
+
 ```text
 frontend/             Astro dashboard, managed exclusively with pnpm
 backend/              Go API, persistent PocketBase metadata, and Linux agent
 deployment/hetzner/   systemd units, installer, build script, and real-server smoke test
+deployment/github-pages/  builder for the standalone static demo
+docs/                 GitHub Pages demo and dashboard screenshot
 ```
+
+## GitHub Pages demo
+
+The public demo is hosted at **https://jagdishjadeja.github.io/pbmanager/**. It uses the same Astro dashboard with demo mode enabled and packages the styles, JavaScript, and favicon into `docs/index.html`.
+
+To rebuild it after changing the frontend, install frontend dependencies and run from the repository root:
+
+```sh
+pnpm --dir frontend install --frozen-lockfile
+python3 deployment/github-pages/build.py
+```
+
+Commit the updated `docs/index.html` and `docs/.nojekyll`. GitHub Pages publishes `main` → `/docs` through **Settings → Pages → Deploy from a branch**. The Go backend and root agent are deployed separately on your VPS using the instructions below.
 
 ## Deploy on your own VPS
 
