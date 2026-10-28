@@ -842,14 +842,19 @@ const demoMode = import.meta.env.PUBLIC_DEMO_MODE === "true";
           a fresh start.
         </p>
         <p>
-          <strong>What’s next</strong>
+          <strong>Run the real manager</strong>
           <br />
-          Connect this interface to the Go API, then add real systemd
-          provisioning and Caddy reverse proxy configuration.
+          Self-host the Go + PocketBase backend and Linux agent on your VPS.
+          Caddy handles HTTPS, and systemd runs each instance.
+          <a
+            href="https://github.com/jagdishjadeja/pbmanager#deploy-on-your-own-vps"
+            target="_blank"
+            rel="noopener noreferrer">Source and setup instructions ↗</a
+          >
         </p>
       </div>
       <div class="modal-bottom">
-        <span class="demo-small">Astro + Go + PocketBase</span>
+        <span class="demo-small">Astro · Go · Caddy · systemd</span>
         <button class="button button-primary" data-close="about-dialog">
           Got it
         </button>
