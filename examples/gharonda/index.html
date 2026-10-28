@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Gharonda — Your app starts here</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; color: #18181b; background: #fff; font: 15px/1.6 Inter, ui-sans-serif, system-ui, sans-serif; }
+      .page { max-width: 860px; margin: auto; padding: 28px 24px; }
+      header, .status, .actions { display: flex; align-items: center; gap: 10px; }
+      header { justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid #e4e4e7; }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.02em; }
+      .mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 7px; background: #18181b; color: white; }
+      .status { border: 1px solid #e4e4e7; border-radius: 999px; padding: 4px 10px; color: #52525b; font-size: 12px; }
+      .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+      main { padding: 76px 0 50px; }
+      .eyebrow { color: #71717a; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+      h1 { font-size: clamp(36px, 6vw, 58px); line-height: 1.08; letter-spacing: -.055em; font-weight: 600; margin: 16px 0 20px; }
+      .intro { max-width: 510px; color: #71717a; font-size: 17px; }
+      .actions { flex-wrap: wrap; margin: 28px 0 40px; }
+      a { color: inherit; }
+      .button { border: 1px solid #e4e4e7; border-radius: 6px; padding: 9px 15px; text-decoration: none; font-size: 14px; font-weight: 500; }
+      .button:hover { background: #f4f4f5; }
+      .primary { background: #18181b; color: #fff; border-color: #18181b; }
+      .primary:hover { background: #27272a; }
+      .routes { border: 1px solid #e4e4e7; border-radius: 10px; overflow: hidden; }
+      .route { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 20px; }
+      .route + .route { border-top: 1px solid #e4e4e7; }
+      .route span { color: #71717a; font-size: 13px; }
+      code { font: 13px ui-monospace, SFMono-Regular, monospace; }
+      footer { border-top: 1px solid #e4e4e7; padding-top: 20px; color: #71717a; font-size: 12px; }
+      @media(max-width: 540px) { .page { padding: 20px; } main { padding-top: 48px; } .route { padding: 14px; } }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header><div class="brand"><span class="mark">G</span> Gharonda</div><div class="status" role="status"><span class="dot"></span><span id="health">Checking backend…</span></div></header>
+      <main>
+        <div class="eyebrow">gharonda.formics.online</div>
+        <h1>Your app starts here.</h1>
+        <p class="intro">Your website is live, with its PocketBase backend on the same domain. Replace this sample page with your own frontend whenever you’re ready.</p>
+        <div class="actions"><a class="button primary" href="/_/">Open PocketBase ↗</a><a class="button" href="/api/health">View API response</a></div>
+        <div class="routes"><div class="route"><code>/</code><span>Your website</span></div><div class="route"><code>/_/</code><span>PocketBase admin</span></div><div class="route"><code>/api/</code><span>Database API</span></div></div>
+      </main>
+      <footer>Gharonda · Hosted with PocketBase Manager</footer>
+    </div>
+    <script>
+      fetch('/api/health', { cache: 'no-store' }).then(response => { if (!response.ok) throw new Error(); document.getElementById('health').textContent = 'Backend online'; }).catch(() => { document.getElementById('health').textContent = 'Backend unavailable'; });
+    </script>
+  </body>
+</html>
