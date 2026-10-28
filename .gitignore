@@ -1,0 +1,26 @@
+frontend/node_modules/
+frontend/dist/
+frontend/.astro/
+.pnpm-store/
+backend/pb_data/
+backend/bin/
+backend/backend
+backend/agent
+# Runtime data and credentials must never be published.
+pb_data/
+pb_backups/
+manager.env
+bootstrap.json
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.key
+*.pem
+.DS_Store
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
