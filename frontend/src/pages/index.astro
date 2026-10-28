@@ -1,0 +1,953 @@
+---
+import Icon from "../components/Icon.astro";
+import "../styles/global.css";
+const demoMode = import.meta.env.PUBLIC_DEMO_MODE === "true";
+---
+
+<!doctype html>
+<html lang="en" data-mode={demoMode ? "demo" : "live"}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An internal dashboard for your PocketBase instances. Provision, monitor, and manage from one place."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Overview · PocketBase Manager</title>
+  </head>
+  <body>
+    <div
+      id="connection-screen"
+      class="connection-screen"
+      hidden={demoMode}
+      role="status"
+    >
+      Connecting to PocketBase Manager…
+    </div>
+    <div class="app-shell" hidden={!demoMode}>
+      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+        <a
+          class="brand"
+          href="#overview"
+          aria-label="PocketBase Manager overview"
+        >
+          <span class="brand-mark">
+            <Icon name="server" size={23} />
+          </span>
+          <span>
+            PocketBase<span class="brand-sub">MANAGER</span>
+          </span>
+        </a>
+        <div class="nav-label">MANAGE</div>
+        <nav>
+          <a class="nav-item active" href="#overview" data-nav="overview">
+            <Icon name="grid" size={18} />
+            Overview
+          </a>
+          <a class="nav-item" href="#instances" data-nav="instances">
+            <Icon name="server" size={18} />
+            Instances
+            <span class="nav-count" id="nav-count">
+              5
+            </span>
+          </a>
+          <a class="nav-item" href="#usage" data-nav="usage">
+            <Icon name="chart" size={18} />
+            Usage & analytics
+          </a>
+          <a class="nav-item" href="#activity" data-nav="activity">
+            <Icon name="activity" size={18} />
+            Activity
+          </a>
+          <button
+            class="nav-item agent-nav"
+            data-action="agent-access"
+            data-live-only
+          >
+            <Icon name="cpu" size={18} /> Agents &amp; MCP
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="demo-note" data-demo-only>
+            <span class="tiny-spark">✳</span>
+            <strong>A little room to explore.</strong>
+            <p>Explore the demo. Try creating an instance.</p>
+            <button class="text-button" data-action="reset">
+              Reset demo <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <button class="sidebar-help" data-action="about" data-demo-only>
+            <Icon name="book" size={18} />
+            About this demo
+            <Icon name="external" size={13} />
+          </button>
+          <button class="sidebar-help" data-action="logout" data-live-only>
+            <Icon name="external" size={18} />
+            Sign out
+          </button>
+          <div class="profile">
+            <span class="profile-avatar">JD</span>
+            <div>
+              <strong id="admin-email">Admin</strong>
+              <span>Administrator</span>
+            </div>
+            <span class="profile-dot"></span>
+          </div>
+        </div>
+      </aside>
+      <button
+        id="mobile-overlay"
+        class="mobile-overlay"
+        aria-label="Close navigation"
+        hidden
+      ></button>
+      <div class="main-shell">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button
+              class="icon-button mobile-menu"
+              aria-label="Open navigation"
+              aria-controls="sidebar"
+              aria-expanded="false"
+            >
+              <Icon name="menu" />
+            </button>
+            <span id="breadcrumb">Overview</span>
+          </div>
+          <div class="topbar-right">
+            <span class="demo-badge" id="mode-badge">
+              <span></span>
+              {demoMode ? "Demo mode" : "Live server"}
+            </span>
+            <span class="local-badge">{demoMode ? "LOCAL" : "HETZNER"}</span>
+          </div>
+        </header>
+        <main id="main">
+          <div
+            id="connection-error"
+            class="error-banner"
+            hidden
+            role="alert"
+          ></div>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow" id="eyebrow">
+                YOUR INFRASTRUCTURE, AT A GLANCE
+              </div>
+              <h1 id="page-title">Overview</h1>
+              <p id="page-description">
+                A home for your backends. Keep an eye on everything in one
+                place.
+              </p>
+            </div>
+            <button class="button button-primary" data-action="create">
+              <Icon name="plus" size={18} />
+              Create instance
+            </button>
+          </div>
+
+          <section
+            id="overview-metrics"
+            class="metric-grid"
+            aria-label="Server summary"
+          ></section>
+
+          <div id="overview-panels" class="overview-panels">
+            <section
+              class="panel storage-panel"
+              aria-labelledby="storage-title"
+            >
+              <div class="panel-top">
+                <h2 id="storage-title">
+                  <Icon name="disk" size={18} />
+                  Server storage
+                </h2>
+                <span class="subtle-label">
+                  Primary volume <span class="mono">/</span>
+                </span>
+              </div>
+              <div class="storage-heading">
+                <div>
+                  <span id="storage-used" class="storage-used">
+                    —
+                  </span>
+                  <span class="storage-total" id="storage-total">
+                    {" "}
+                    / 40 GiB used
+                  </span>
+                </div>
+                <span class="storage-percent" id="storage-percent">
+                  —
+                </span>
+              </div>
+              <div
+                class="storage-bar"
+                role="img"
+                aria-label="Server storage breakdown"
+                id="storage-bar"
+              ></div>
+              <div class="storage-legend" id="storage-legend"></div>
+              <div class="panel-foot">
+                <span>
+                  <span class="status-dot running"></span>
+                  <span id="storage-available">—</span> available for your next
+                  idea
+                </span>
+                <span class="subtle-label" id="storage-mode-label">
+                  Sample volume
+                </span>
+              </div>
+            </section>
+            <section class="panel server-panel" aria-labelledby="server-title">
+              <div class="panel-top">
+                <h2 id="server-title">Your server</h2>
+                <span class="pill pill-green">
+                  <span class="status-dot running"></span>Healthy
+                </span>
+              </div>
+              <div class="server-identity">
+                <div class="server-illustration">
+                  <Icon name="server" size={31} />
+                </div>
+                <div>
+                  <strong id="server-name">primary-01</strong>
+                  <span id="server-os">Ubuntu 24.04 LTS</span>
+                </div>
+              </div>
+              <dl class="server-facts">
+                <div>
+                  <dt>Region</dt>
+                  <dd id="server-region">Local infrastructure</dd>
+                </div>
+                <div>
+                  <dt>Resources</dt>
+                  <dd>
+                    <span id="server-resources">2 vCPU · 4 GiB RAM</span>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Reverse proxy</dt>
+                  <dd>
+                    <span class="small-green-dot"></span>Caddy{" "}
+                    <span class="subtle-label">· Auto HTTPS</span>
+                  </dd>
+                </div>
+              </dl>
+            </section>
+          </div>
+
+          <section
+            class="panel instances-panel"
+            id="instances-panel"
+            aria-labelledby="instances-title"
+            aria-busy="true"
+          >
+            <div class="instances-heading">
+              <div class="section-title">
+                <h2 id="instances-title">Your instances</h2>
+                <span class="count-pill" id="table-count">
+                  5
+                </span>
+              </div>
+              <div class="table-tools">
+                <label class="search-box">
+                  <Icon name="search" size={16} />
+                  <input
+                    id="instance-search"
+                    type="search"
+                    placeholder="Search instances…"
+                    aria-label="Search instances"
+                  />
+                </label>
+                <label class="visually-hidden" for="status-filter">
+                  Filter by status
+                </label>
+                <select id="status-filter" class="select-control">
+                  <option value="all">All statuses</option>
+                  <option value="running">Running</option>
+                  <option value="stopped">Stopped</option>
+                  <option value="failed">Failed</option>
+                  <option value="provisioning">Provisioning</option>
+                </select>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      <button class="sort-button" data-sort="name">
+                        Instance <span aria-hidden="true">↕</span>
+                      </button>
+                    </th>
+                    <th scope="col">
+                      <button class="sort-button" data-sort="status">
+                        Status <span aria-hidden="true">↕</span>
+                      </button>
+                    </th>
+                    <th scope="col" class="number-cell">
+                      <button class="sort-button" data-sort="databaseBytes">
+                        Database <span aria-hidden="true">↕</span>
+                      </button>
+                    </th>
+                    <th scope="col" class="number-cell">
+                      <button class="sort-button" data-sort="storageBytes">
+                        Total storage <span aria-hidden="true">↕</span>
+                      </button>
+                    </th>
+                    <th scope="col" class="number-cell">
+                      CPU
+                    </th>
+                    <th scope="col" class="number-cell">
+                      Memory
+                    </th>
+                    <th scope="col">
+                      <span class="visually-hidden">Actions</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="instances-body">
+                  <tr>
+                    <td colspan="7" class="empty-state">
+                      Loading instances…
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-footer">
+              <span id="table-summary">Loading instances…</span>
+              <span>
+                <span class="legend-dot green"></span>Database + uploads +
+                backups = total storage
+              </span>
+            </div>
+          </section>
+
+          <section
+            class="panel analytics-panel"
+            id="analytics-panel"
+            hidden
+            aria-labelledby="analytics-title"
+          >
+            <div class="panel-top">
+              <div>
+                <h2 id="analytics-title">Usage & analytics</h2>
+                <p class="section-description">
+                  <span id="usage-description">
+                    Traffic across your instances.
+                  </span>
+                </p>
+              </div>
+              <label class="visually-hidden" for="usage-range">
+                Chart time range
+              </label>
+              <select id="usage-range" class="select-control">
+                <option value="24">Last 24 hours</option>
+                <option value="168">Last 7 days</option>
+                <option value="720">Last 30 days</option>
+              </select>
+            </div>
+            <div id="usage-metrics" class="inline-metrics"></div>
+            <div id="usage-chart"></div>
+            <p class="chart-footnote">
+              HTTP body traffic · excludes TLS overhead and unrelated outbound
+              connections
+            </p>
+          </section>
+
+          <section id="detail-panel" hidden></section>
+
+          <section
+            id="activity-panel"
+            class="panel activity-panel"
+            aria-labelledby="activity-title"
+          >
+            <div class="panel-top">
+              <h2 id="activity-title">Recent activity</h2>
+              <a href="#activity" class="text-link" id="all-activity-link">
+                View all activity <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div id="activity-list"></div>
+          </section>
+
+          <footer class="page-footer">
+            <span>
+              <span class="status-dot running"></span>
+              <span id="last-updated">Sample data</span>
+              <button
+                class="text-button refresh-button"
+                data-action="refresh"
+                aria-label="Refresh sample measurements"
+              >
+                <Icon name="refresh" size={13} />
+                Refresh
+              </button>
+            </span>
+            <span>
+              Built for the things you’re building.
+              <span class="footer-dot">·</span>PocketBase Manager
+            </span>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <dialog id="create-dialog" class="modal" aria-labelledby="create-title">
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="server" size={23} />
+        </span>
+        <button
+          class="icon-button"
+          data-close="create-dialog"
+          aria-label="Close create instance dialog"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <h2 id="create-title">A new home for your data.</h2>
+      <p class="modal-description">
+        Create a PocketBase instance with its own service and HTTPS address.
+      </p>
+      <form id="create-form">
+        <label for="instance-name" class="field-label">
+          Instance name <span>optional</span>
+        </label>
+        <div class="name-field">
+          <input
+            id="instance-name"
+            name="name"
+            placeholder="e.g. gronda"
+            maxlength="32"
+            autocomplete="off"
+            autocapitalize="none"
+            spellcheck="false"
+            aria-describedby="name-hint name-error"
+          />
+          <span class="domain-suffix">.opb.com</span>
+        </div>
+        <p class="field-hint" id="name-hint">
+          Leave blank to use a random six-character name.
+        </p>
+        <div class="url-preview">
+          <Icon name="globe" size={17} />
+          <span>
+            https://<strong id="hostname-preview">—</strong>
+            <span class="domain-suffix">.opb.com</span>
+          </span>
+          <button
+            type="button"
+            id="regenerate-name"
+            class="icon-button"
+            aria-label="Generate another random name"
+          >
+            <Icon name="refresh" size={15} />
+          </button>
+        </div>
+        <p class="field-hint">
+          Your default domain is included and stays available when you add a
+          customer domain.
+        </p>
+        <label for="create-custom-domain" class="field-label password-label">
+          Customer domain <span>optional</span>
+        </label>
+        <div class="name-field">
+          <input
+            id="create-custom-domain"
+            name="customDomain"
+            placeholder="api.customer.com"
+            autocomplete="off"
+            autocapitalize="none"
+            spellcheck="false"
+            maxlength="253"
+          />
+        </div>
+        <p class="field-hint">
+          We’ll show the DNS records to verify ownership and enable HTTPS.
+        </p>
+        <label for="create-ram" class="field-label password-label">
+          RAM limit (MiB)
+        </label>
+        <input
+          class="resource-input"
+          id="create-ram"
+          name="memoryLimitMiB"
+          type="number"
+          min="128"
+          max="32768"
+          step="64"
+          value="512"
+          required
+        />
+        <p class="field-hint" id="create-ram-hint">
+          Default 512 MiB. Choose a limit in steps of 64 MiB; RAM is used on
+          demand.
+        </p>
+        <div class="create-config">
+          <div>
+            <span>Runtime</span>
+            <strong>PocketBase</strong>
+          </div>
+          <div>
+            <span>Service</span>
+            <strong>systemd</strong>
+          </div>
+          <div>
+            <span>Reverse proxy</span>
+            <strong>Caddy HTTPS</strong>
+          </div>
+        </div>
+        <details class="demo-options" data-demo-only>
+          <summary>Demo options</summary>
+          <label>
+            <input type="checkbox" id="simulate-failure" />
+            Simulate a failed health check
+          </label>
+        </details>
+        <p class="form-error" id="name-error" role="alert"></p>
+        <div id="provision-progress" hidden aria-live="polite"></div>
+        <div class="modal-bottom">
+          <span class="demo-small" id="create-mode-note">
+            Demo · no server changes
+          </span>
+          <button
+            class="button button-primary"
+            type="submit"
+            id="create-submit"
+          >
+            <Icon name="plus" size={17} />
+            <span>Create instance</span>
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog
+      id="confirm-dialog"
+      class="modal confirm-modal"
+      aria-labelledby="confirm-title"
+    >
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="info" size={23} />
+        </span>
+        <button
+          class="icon-button"
+          data-close="confirm-dialog"
+          aria-label="Close confirmation"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <h2 id="confirm-title">Delete instance?</h2>
+      <p id="confirm-description" class="modal-description"></p>
+      <div class="modal-bottom">
+        <button class="button button-secondary" data-close="confirm-dialog">
+          Cancel
+        </button>
+        <button id="confirm-submit" class="button button-danger">
+          Delete instance
+        </button>
+      </div>
+    </dialog>
+
+    <dialog
+      id="domain-dialog"
+      class="modal"
+      aria-labelledby="domain-dialog-title"
+    >
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="globe" size={23} />
+        </span>
+        <button
+          class="icon-button"
+          data-close="domain-dialog"
+          aria-label="Close domain dialog"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <h2 id="domain-dialog-title">Add a customer domain</h2>
+      <p class="modal-description">
+        Connect a hostname you own. Your default domain will remain available.
+      </p>
+      <form id="domain-form">
+        <label class="field-label" for="domain-hostname">
+          Hostname
+        </label>
+        <div class="name-field">
+          <input
+            id="domain-hostname"
+            placeholder="api.customer.com"
+            autocomplete="off"
+            autocapitalize="none"
+            spellcheck="false"
+            maxlength="253"
+            required
+          />
+        </div>
+        <p class="field-hint">
+          Use the hostname only, without https:// or a path.
+        </p>
+        <p id="domain-form-error" class="form-error" role="alert"></p>
+        <div class="modal-bottom">
+          <span class="demo-small">Ownership verification required</span>
+          <button
+            class="button button-primary"
+            id="domain-submit"
+            type="submit"
+          >
+            Add domain
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="sftp-dialog" class="modal" aria-labelledby="sftp-title">
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="server" size={23} />
+        </span>
+        <button
+          class="icon-button"
+          data-close="sftp-dialog"
+          aria-label="Close file account dialog"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <h2 id="sftp-title">Add a file account</h2>
+      <p class="modal-description">
+        This login is confined to the selected instance’s website files. It
+        provides SFTP access, with no terminal or database access.
+      </p>
+      <form id="sftp-form">
+        <label class="field-label" for="sftp-username">
+          Username
+        </label>
+        <input
+          id="sftp-username"
+          class="resource-input"
+          autocomplete="off"
+          autocapitalize="none"
+          spellcheck="false"
+          pattern="[a-z][a-z0-9]{2,23}"
+          minlength="3"
+          maxlength="24"
+          placeholder="abc123"
+          required
+        />
+        <label class="field-label password-label" for="sftp-password">
+          Password
+        </label>
+        <input
+          id="sftp-password"
+          class="resource-input"
+          type="password"
+          autocomplete="new-password"
+          minlength="12"
+          maxlength="128"
+          required
+        />
+        <p class="field-hint">
+          Use 3–24 lowercase letters and numbers for the username. Passwords
+          need at least 12 characters.
+        </p>
+        <p id="sftp-error" class="form-error" role="alert"></p>
+        <div class="modal-bottom">
+          <span class="demo-small">SFTP · Port 22 · Website files only</span>
+          <button class="button button-primary" id="sftp-submit" type="submit">
+            Save file account
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog
+      id="agents-dialog"
+      class="modal agents-modal"
+      aria-labelledby="agents-title"
+    >
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="cpu" size={23} />
+        </span>
+        <button
+          class="icon-button"
+          data-close="agents-dialog"
+          aria-label="Close agent access"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <h2 id="agents-title">Agents &amp; MCP</h2>
+      <p class="modal-description">
+        Connect Codex, Cursor, or another MCP client. Agent tokens grant
+        PocketBase superadmin read/write access to their assigned instances and
+        shared task tools.
+      </p>
+      <div class="credential-field">
+        <span>MCP endpoint</span>
+        <code id="mcp-endpoint"></code>
+      </div>
+      <form id="agent-token-form" class="agent-token-form">
+        <label class="field-label" for="agent-name">
+          Agent name
+        </label>
+        <input
+          id="agent-name"
+          class="resource-input"
+          placeholder="Cursor · development"
+          maxlength="80"
+          required
+        />
+        <label class="field-label" for="agent-instance">
+          Database access
+        </label>
+        <select id="agent-instance" class="resource-input">
+          <option value="">All managed instances</option>
+        </select>
+        <button
+          class="button button-primary"
+          id="agent-token-submit"
+          type="submit"
+        >
+          Create agent token
+        </button>
+      </form>
+      <p id="agent-access-error" class="form-error" role="alert"></p>
+      <div id="agent-new-token" hidden>
+        <p class="field-hint">
+          Copy this token now. It is shown once; revoke it if it is shared
+          accidentally.
+        </p>
+        <div class="credential-field">
+          <span>Agent token</span>
+          <code id="agent-secret"></code>
+        </div>
+        <div class="credential-field">
+          <span>Cursor · .cursor/mcp.json</span>
+          <pre id="agent-cursor-config"></pre>
+        </div>
+        <div class="credential-field">
+          <span>Codex · MCP server configuration</span>
+          <pre id="agent-codex-config"></pre>
+        </div>
+        <p class="field-hint">
+          For Codex, set the PBMANAGER_MCP_TOKEN environment variable to the
+          token above before starting your client.
+        </p>
+      </div>
+      <h3 class="agent-section-title">Agent access</h3>
+      <div id="agent-token-list"></div>
+      <h3 class="agent-section-title">Shared tasks</h3>
+      <p class="field-hint">
+        Agents can create and update tasks with create_task, list_tasks, and
+        update_task.
+      </p>
+      <div id="agent-task-list"></div>
+    </dialog>
+
+    <dialog id="site-dialog" class="modal" aria-labelledby="site-dialog-title">
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="globe" size={23} />
+        </span>
+        <button
+          class="icon-button"
+          data-close="site-dialog"
+          aria-label="Close site upload dialog"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <h2 id="site-dialog-title">Publish a static website</h2>
+      <p class="modal-description">
+        Your website opens at the instance domain. PocketBase remains at{" "}
+        <code>/_/</code>, with its API at <code>/api/</code>.
+      </p>
+      <form id="site-form">
+        <label class="field-label" for="site-file">
+          Website files
+        </label>
+        <input
+          class="site-file-input"
+          id="site-file"
+          name="site"
+          type="file"
+          accept=".zip,.html,.htm"
+          required
+        />
+        <p class="field-hint">
+          Upload a ZIP containing index.html and your built assets, or one HTML
+          file. Maximum 50 MiB upload, 100 MiB extracted, and 5,000 files. A
+          single enclosing build folder is supported.
+        </p>
+        <p class="field-hint">
+          Publishing replaces the previous website. Static files share the
+          instance’s storage allowance. A source project must be built before
+          uploading.
+        </p>
+        <p
+          id="site-upload-status"
+          class="field-hint"
+          role="status"
+          aria-live="polite"
+        ></p>
+        <p id="site-form-error" class="form-error" role="alert"></p>
+        <div class="modal-bottom">
+          <span class="demo-small">HTML · CSS · JavaScript · assets</span>
+          <button class="button button-primary" id="site-submit" type="submit">
+            Publish site
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="about-dialog" class="modal" aria-labelledby="about-title">
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="book" size={23} />
+        </span>
+        <button
+          class="icon-button"
+          data-close="about-dialog"
+          aria-label="Close about dialog"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <h2 id="about-title">Your infrastructure, simplified.</h2>
+      <p class="modal-description">
+        This interactive Astro demo previews a Go + PocketBase control plane.
+        Instance creation, systemd commands, Caddy HTTPS, metrics, and logs are
+        simulated.
+      </p>
+      <div class="about-details">
+        <p>
+          <strong>Try it out</strong>
+          <br />
+          Create an instance, inspect its usage, stop or restart it, and watch
+          the activity feed update.
+        </p>
+        <p>
+          <strong>Your changes stay here</strong>
+          <br />
+          Demo state is saved in this browser. Reset the demo whenever you want
+          a fresh start.
+        </p>
+        <p>
+          <strong>What’s next</strong>
+          <br />
+          Connect this interface to the Go API, then add real systemd
+          provisioning and Caddy reverse proxy configuration.
+        </p>
+      </div>
+      <div class="modal-bottom">
+        <span class="demo-small">Astro + Go + PocketBase</span>
+        <button class="button button-primary" data-close="about-dialog">
+          Got it
+        </button>
+      </div>
+    </dialog>
+
+    <dialog
+      id="login-dialog"
+      class="modal login-modal"
+      aria-labelledby="login-title"
+    >
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="server" size={24} />
+        </span>
+      </div>
+      <h2 id="login-title">PocketBase Manager</h2>
+      <p class="modal-description">
+        Sign in to manage your server and PocketBase instances.
+      </p>
+      <form id="login-form">
+        <label class="field-label" for="login-email">
+          Admin email
+        </label>
+        <div class="name-field">
+          <input
+            id="login-email"
+            type="email"
+            autocomplete="username"
+            required
+          />
+        </div>
+        <label class="field-label password-label" for="login-password">
+          Password
+        </label>
+        <div class="name-field">
+          <input
+            id="login-password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+        </div>
+        <p class="form-error" id="login-error" role="alert"></p>
+        <div class="modal-bottom">
+          <span class="demo-small">Private infrastructure</span>
+          <button class="button button-primary" id="login-submit" type="submit">
+            Sign in
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog
+      id="credentials-dialog"
+      class="modal"
+      aria-labelledby="credentials-title"
+    >
+      <div class="modal-header">
+        <span class="modal-icon">
+          <Icon name="server" size={23} />
+        </span>
+        <button
+          class="icon-button"
+          data-close="credentials-dialog"
+          aria-label="Close credentials"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <h2 id="credentials-title">Initial superadmin login</h2>
+      <p class="modal-description">
+        You can view this instance’s initial superadmin credentials here
+        anytime.
+      </p>
+      <div class="credential-field">
+        <span>Email</span>
+        <code id="credential-email"></code>
+      </div>
+      <div class="credential-field">
+        <span>Password</span>
+        <code id="credential-password"></code>
+      </div>
+      <div class="modal-bottom">
+        <span class="demo-small">
+          If you change the password in PocketBase, use that password instead.
+        </span>
+        <button class="button button-primary" data-close="credentials-dialog">
+          Done
+        </button>
+      </div>
+    </dialog>
+    <div
+      id="toast-region"
+      class="toast-region"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <script src="../scripts/dashboard.ts"></script>
+  </body>
+</html>
