@@ -1,0 +1,29 @@
+[Unit]
+Description=PocketBase Manager API and dashboard
+After=network-online.target pbmanager-agent.service
+Wants=network-online.target
+Requires=pbmanager-agent.service
+
+[Service]
+User=pbmanager
+Group=pbmanager
+WorkingDirectory=/var/lib/pbmanager/control
+EnvironmentFile=/etc/pbmanager/manager.env
+ExecStart=/opt/pbmanager/current/bin/pbmanager serve --http=127.0.0.1:8095 --dir=/var/lib/pbmanager/control/pb_data
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=45
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/pbmanager/control
+ProtectKernelTunables=true
+ProtectKernelModules=true
+RestrictSUIDSGID=true
+CapabilityBoundingSet=
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

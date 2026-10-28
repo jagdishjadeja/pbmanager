@@ -1,0 +1,23 @@
+[Unit]
+Description=PocketBase Manager systemd provisioning agent
+After=network-online.target caddy.service
+Wants=network-online.target
+Requires=caddy.service
+
+[Service]
+User=root
+Group=pbmanager
+EnvironmentFile=/etc/pbmanager/manager.env
+ExecStart=/opt/pbmanager/current/bin/pbmanager-agent
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=180
+UMask=0077
+RuntimeDirectory=pbmanager-agent
+RuntimeDirectoryMode=0750
+ProtectHome=true
+NoNewPrivileges=true
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
