@@ -2,7 +2,7 @@
 
 An admin-only control plane for independent PocketBase instances, built with **Go + PocketBase** and an **Astro + TypeScript** dashboard.
 
-**[Try the interactive demo →](https://jagdishjadeja.github.io/pbmanager/)**
+**[Visit the hosting website →](https://jagdishjadeja.github.io/pbmanager/)** · **[Try the interactive dashboard →](https://jagdishjadeja.github.io/pbmanager/demo/)**
 
 The static demo uses browser-local sample data. Explore the dashboard, create or restart sample instances, and reset it anytime. It does not connect to a live management server.
 
@@ -16,13 +16,15 @@ Manage your PocketBase instances and monitor server resources from one dashboard
 frontend/             Astro dashboard, managed exclusively with pnpm
 backend/              Go API, persistent PocketBase metadata, and Linux agent
 deployment/hetzner/   systemd units, installer, build script, and real-server smoke test
-deployment/github-pages/  builder for the standalone static demo
-docs/                 GitHub Pages demo and dashboard screenshot
+deployment/github-pages/  hosting page source and static demo builder
+docs/                 GitHub Pages hosting page, dashboard demo, and screenshot
 ```
 
-## GitHub Pages demo
+## GitHub Pages website and demo
 
-The public demo is hosted at **https://jagdishjadeja.github.io/pbmanager/**. It uses the same Astro dashboard with demo mode enabled and packages the styles, JavaScript, and favicon into `docs/index.html`.
+The managed hosting landing page is hosted at **https://jagdishjadeja.github.io/pbmanager/**. Its source is `deployment/github-pages/landing.html`. Hosting requests open a GitHub issue; the static website does not implement customer registration, billing, or real server provisioning.
+
+The interactive dashboard is at **https://jagdishjadeja.github.io/pbmanager/demo/**. It uses the same Astro dashboard with demo mode enabled and packages styles, JavaScript, fonts, and the favicon into `docs/demo/index.html`. The landing page embeds that demo so visitors can explore the actual interface.
 
 To rebuild it after changing the frontend, install frontend dependencies and run from the repository root:
 
@@ -31,7 +33,7 @@ pnpm --dir frontend install --frozen-lockfile
 python3 deployment/github-pages/build.py
 ```
 
-Commit the updated `docs/index.html` and `docs/.nojekyll`. GitHub Pages publishes `main` → `/docs` through **Settings → Pages → Deploy from a branch**. The Go backend and root agent are deployed separately on your VPS using the instructions below.
+Commit the updated `docs/index.html`, `docs/demo/index.html`, and `docs/.nojekyll`. GitHub Pages publishes `main` → `/docs` through **Settings → Pages → Deploy from a branch**. The Go backend and root agent are deployed separately on your VPS using the instructions below. This release refreshes the admin interface in source and in the public demo; it does not update a separately running VPS automatically.
 
 ## Deploy on your own VPS
 
