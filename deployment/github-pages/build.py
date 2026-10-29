@@ -10,7 +10,8 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
 DIST = ROOT / "frontend" / "dist"
-DEMO_URL = "https://jagdishjadeja.github.io/pbmanager/"
+SITE_URL = "https://jagdishjadeja.github.io/pbmanager/"
+DEMO_URL = SITE_URL + "demo/"
 
 
 def asset(url: str) -> str:
@@ -62,14 +63,28 @@ def main() -> None:
         '<meta property="og:title" content="PocketBase Manager · Interactive Demo">'
         f'<meta property="og:description" content="{description}">'
         f'<meta property="og:url" content="{DEMO_URL}">'
-        f'<meta property="og:image" content="{DEMO_URL}images/pocketbase-manager-dashboard.png">'
+        f'<meta property="og:image" content="{SITE_URL}images/pocketbase-manager-dashboard.png">'
     )
     html = html.replace("</head>", preview + "</head>", 1)
 
-    destination = ROOT / "docs"
-    destination.mkdir(exist_ok=True)
+    fonts = []
+    for weight, filename in [(400, "manrope-regular.ttf"), (600, "manrope-semibold.ttf"), (800, "manrope-extrabold.ttf")]:
+        encoded = base64.b64encode((DIST / "fonts" / filename).read_bytes()).decode()
+        data_url = f"data:font/ttf;base64,{encoded}"
+        html = html.replace(f'/fonts/{filename}', data_url)
+        fonts.append(
+            "@font-face{font-family:Manrope;font-style:normal;"
+            f"font-weight:{weight};font-display:swap;"
+            f"src:url({data_url}) format('truetype')}}"
+        )
+    destination = ROOT / "docs" / "demo"
+    destination.mkdir(parents=True, exist_ok=True)
     (destination / "index.html").write_text(html)
-    (destination / ".nojekyll").write_text("Static PocketBase Manager demo.\n")
+    landing = (ROOT / "deployment" / "github-pages" / "landing.html").read_text()
+    landing = landing.replace("/* FONT_FACES */", "\n".join(fonts))
+    (ROOT / "docs" / "index.html").write_text(landing)
+    (ROOT / "docs" / ".nojekyll").write_text("Static PBManager hosting page and browser-local dashboard demo.\n")
+    print(f"GitHub Pages landing page: {ROOT / 'docs' / 'index.html'}")
     print(f"GitHub Pages demo: {destination / 'index.html'}")
 
 
