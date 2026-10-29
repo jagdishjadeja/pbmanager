@@ -37,10 +37,10 @@ const demoMode = import.meta.env.PUBLIC_DEMO_MODE === "true";
             <Icon name="server" size={23} />
           </span>
           <span>
-            PocketBase<span class="brand-sub">MANAGER</span>
+            pbmanager<span class="brand-sub">Your hosting workspace</span>
           </span>
         </a>
-        <div class="nav-label">MANAGE</div>
+        <div class="nav-label">Workspace</div>
         <nav>
           <a class="nav-item active" href="#overview" data-nav="overview">
             <Icon name="grid" size={18} />
@@ -71,11 +71,11 @@ const demoMode = import.meta.env.PUBLIC_DEMO_MODE === "true";
         </nav>
         <div class="sidebar-bottom">
           <div class="demo-note" data-demo-only>
-            <span class="tiny-spark">✳</span>
-            <strong>A little room to explore.</strong>
-            <p>Explore the demo. Try creating an instance.</p>
+            <span class="demo-note-icon"><Icon name="server" size={20} /></span>
+            <strong>Make yourself at home.</strong>
+            <p>A sample workspace. Try creating your first instance.</p>
             <button class="text-button" data-action="reset">
-              Reset demo <span aria-hidden="true">↗</span>
+              Reset demo <Icon name="refresh" size={13} />
             </button>
           </div>
           <button class="sidebar-help" data-action="about" data-demo-only>
@@ -83,6 +83,9 @@ const demoMode = import.meta.env.PUBLIC_DEMO_MODE === "true";
             About this demo
             <Icon name="external" size={13} />
           </button>
+          <a class="sidebar-home" href="../" data-demo-only>
+            Back to PBManager <Icon name="arrow" size={14} />
+          </a>
           <button class="sidebar-help" data-action="logout" data-live-only>
             <Icon name="external" size={18} />
             Sign out
@@ -114,9 +117,12 @@ const demoMode = import.meta.env.PUBLIC_DEMO_MODE === "true";
             >
               <Icon name="menu" />
             </button>
+            <span class="workspace-path">Workspace</span>
+            <Icon name="chevron" size={13} />
             <span id="breadcrumb">Overview</span>
           </div>
           <div class="topbar-right">
+            <span id="workspace-health" class="workspace-health" role="status"></span>
             <span class="demo-badge" id="mode-badge">
               <span></span>
               {demoMode ? "Demo mode" : "Live server"}
@@ -133,9 +139,6 @@ const demoMode = import.meta.env.PUBLIC_DEMO_MODE === "true";
           ></div>
           <div class="page-heading">
             <div>
-              <div class="eyebrow" id="eyebrow">
-                YOUR INFRASTRUCTURE, AT A GLANCE
-              </div>
               <h1 id="page-title">Overview</h1>
               <p id="page-description">
                 A home for your backends. Keep an eye on everything in one
@@ -279,22 +282,22 @@ const demoMode = import.meta.env.PUBLIC_DEMO_MODE === "true";
                   <tr>
                     <th scope="col">
                       <button class="sort-button" data-sort="name">
-                        Instance <span aria-hidden="true">↕</span>
+                        Instance <span aria-hidden="true"><Icon name="sort" size={12} /></span>
                       </button>
                     </th>
                     <th scope="col">
                       <button class="sort-button" data-sort="status">
-                        Status <span aria-hidden="true">↕</span>
+                        Status <span aria-hidden="true"><Icon name="sort" size={12} /></span>
                       </button>
                     </th>
                     <th scope="col" class="number-cell">
                       <button class="sort-button" data-sort="databaseBytes">
-                        Database <span aria-hidden="true">↕</span>
+                        Database <span aria-hidden="true"><Icon name="sort" size={12} /></span>
                       </button>
                     </th>
                     <th scope="col" class="number-cell">
                       <button class="sort-button" data-sort="storageBytes">
-                        Total storage <span aria-hidden="true">↕</span>
+                        Total storage <span aria-hidden="true"><Icon name="sort" size={12} /></span>
                       </button>
                     </th>
                     <th scope="col" class="number-cell">
