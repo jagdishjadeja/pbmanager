@@ -47,6 +47,9 @@ const iconPaths: Record<string, string> = {
   close: "m6 6 12 12M6 18 18 6",
   chevron: "m9 5 7 7-7 7",
   arrow: "M12 19V5M5 12l7-7 7 7",
+  "sort-up": "M12 19V5m-5 7 5-7 5 7",
+  "sort-down": "M12 5v14m-5-7 5 7 5-7",
+  sort: "m8 9 4-4 4 4m-8 6 4 4 4-4",
   copy: "M8 8h13v13H8zM16 8V3H3v13h5",
 };
 const icon = (name: string, size = 16) =>
@@ -225,7 +228,11 @@ function renderMetrics(): void {
   const serverWarning = snapshot.server?.error ?? "";
   $("#connection-error").hidden = !serverWarning;
   $("#connection-error").textContent = serverWarning;
-  $("#eyebrow").dataset.health = failed ? "attention" : "healthy";
+  const health = $("#workspace-health");
+  health.dataset.health = failed ? "attention" : "healthy";
+  health.textContent = failed
+    ? `${failed} ${failed === 1 ? "instance needs" : "instances need"} attention`
+    : "No instance errors";
 }
 
 function renderTable(): void {
@@ -264,8 +271,12 @@ function renderTable(): void {
               : "descending"
             : "none",
         );
-      button.querySelector("span")!.textContent =
-        button.dataset.sort === sort ? (sortDirection === 1 ? "↑" : "↓") : "↕";
+      button.querySelector("span")!.innerHTML = icon(
+        button.dataset.sort === sort
+          ? sortDirection === 1 ? "sort-up" : "sort-down"
+          : "sort",
+        12,
+      );
     });
   if (!instances.length) {
     $("#instances-body").innerHTML =
@@ -416,11 +427,6 @@ function route(): void {
   $("#page-description").textContent = titles[currentView][1];
   $("#breadcrumb").textContent = titles[currentView][0];
   document.title = `${titles[currentView][0]} · PocketBase Manager`;
-  $("#eyebrow").textContent = detailId
-    ? "YOUR POCKETBASE INSTANCE"
-    : currentView === "overview"
-      ? "YOUR INFRASTRUCTURE, AT A GLANCE"
-      : "INSTANCE MANAGEMENT";
   $("#overview-metrics").hidden =
     Boolean(detailId) || currentView === "activity";
   $("#overview-panels").hidden =
