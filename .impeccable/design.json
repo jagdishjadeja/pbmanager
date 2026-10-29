@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T14:16:15.885081+00:00",
+  "title": "Design System: PBManager",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Service Cobalt",
+        "tonalRamp": [
+          "oklch(15% 0.2275 266.14)",
+          "oklch(27% 0.2275 266.14)",
+          "oklch(39% 0.2275 266.14)",
+          "oklch(51% 0.2275 266.14)",
+          "oklch(63% 0.2275 266.14)",
+          "oklch(75% 0.2275 266.14)",
+          "oklch(87% 0.2275 266.14)",
+          "oklch(95% 0.2275 266.14)"
+        ]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "Deep Service Cobalt",
+        "tonalRamp": [
+          "oklch(15% 0.1954 265.71)",
+          "oklch(27% 0.1954 265.71)",
+          "oklch(39% 0.1954 265.71)",
+          "oklch(51% 0.1954 265.71)",
+          "oklch(63% 0.1954 265.71)",
+          "oklch(75% 0.1954 265.71)",
+          "oklch(87% 0.1954 265.71)",
+          "oklch(95% 0.1954 265.71)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink Blue",
+        "tonalRamp": [
+          "oklch(15% 0.0621 256.63)",
+          "oklch(27% 0.0621 256.63)",
+          "oklch(39% 0.0621 256.63)",
+          "oklch(51% 0.0621 256.63)",
+          "oklch(63% 0.0621 256.63)",
+          "oklch(75% 0.0621 256.63)",
+          "oklch(87% 0.0621 256.63)",
+          "oklch(95% 0.0621 256.63)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Slate Blue",
+        "tonalRamp": [
+          "oklch(15% 0.0472 256.32)",
+          "oklch(27% 0.0472 256.32)",
+          "oklch(39% 0.0472 256.32)",
+          "oklch(51% 0.0472 256.32)",
+          "oklch(63% 0.0472 256.32)",
+          "oklch(75% 0.0472 256.32)",
+          "oklch(87% 0.0472 256.32)",
+          "oklch(95% 0.0472 256.32)"
+        ]
+      },
+      "cloud": {
+        "role": "neutral",
+        "displayName": "Cloud White",
+        "tonalRamp": [
+          "oklch(15% 0.0074 260.73)",
+          "oklch(27% 0.0074 260.73)",
+          "oklch(39% 0.0074 260.73)",
+          "oklch(51% 0.0074 260.73)",
+          "oklch(63% 0.0074 260.73)",
+          "oklch(75% 0.0074 260.73)",
+          "oklch(87% 0.0074 260.73)",
+          "oklch(95% 0.0074 260.73)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Working White",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0.00)",
+          "oklch(27% 0.0000 0.00)",
+          "oklch(39% 0.0000 0.00)",
+          "oklch(51% 0.0000 0.00)",
+          "oklch(63% 0.0000 0.00)",
+          "oklch(75% 0.0000 0.00)",
+          "oklch(87% 0.0000 0.00)",
+          "oklch(95% 0.0000 0.00)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Blue-Gray Rule",
+        "tonalRamp": [
+          "oklch(15% 0.0173 256.28)",
+          "oklch(27% 0.0173 256.28)",
+          "oklch(39% 0.0173 256.28)",
+          "oklch(51% 0.0173 256.28)",
+          "oklch(63% 0.0173 256.28)",
+          "oklch(75% 0.0173 256.28)",
+          "oklch(87% 0.0173 256.28)",
+          "oklch(95% 0.0173 256.28)"
+        ]
+      },
+      "pale": {
+        "role": "primary",
+        "displayName": "Pale Cobalt",
+        "tonalRamp": [
+          "oklch(15% 0.0182 269.09)",
+          "oklch(27% 0.0182 269.09)",
+          "oklch(39% 0.0182 269.09)",
+          "oklch(51% 0.0182 269.09)",
+          "oklch(63% 0.0182 269.09)",
+          "oklch(75% 0.0182 269.09)",
+          "oklch(87% 0.0182 269.09)",
+          "oklch(95% 0.0182 269.09)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "Field Rule",
+        "tonalRamp": [
+          "oklch(15% 0.0339 261.02)",
+          "oklch(27% 0.0339 261.02)",
+          "oklch(39% 0.0339 261.02)",
+          "oklch(51% 0.0339 261.02)",
+          "oklch(63% 0.0339 261.02)",
+          "oklch(75% 0.0339 261.02)",
+          "oklch(87% 0.0339 261.02)",
+          "oklch(95% 0.0339 261.02)"
+        ]
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Healthy Green",
+        "tonalRamp": [
+          "oklch(15% 0.0865 163.89)",
+          "oklch(27% 0.0865 163.89)",
+          "oklch(39% 0.0865 163.89)",
+          "oklch(51% 0.0865 163.89)",
+          "oklch(63% 0.0865 163.89)",
+          "oklch(75% 0.0865 163.89)",
+          "oklch(87% 0.0865 163.89)",
+          "oklch(95% 0.0865 163.89)"
+        ]
+      },
+      "success-surface": {
+        "role": "semantic",
+        "displayName": "Healthy Green Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0168 168.50)",
+          "oklch(27% 0.0168 168.50)",
+          "oklch(39% 0.0168 168.50)",
+          "oklch(51% 0.0168 168.50)",
+          "oklch(63% 0.0168 168.50)",
+          "oklch(75% 0.0168 168.50)",
+          "oklch(87% 0.0168 168.50)",
+          "oklch(95% 0.0168 168.50)"
+        ]
+      },
+      "success-dot": {
+        "role": "semantic",
+        "displayName": "Healthy Green Marker",
+        "tonalRamp": [
+          "oklch(15% 0.1041 165.23)",
+          "oklch(27% 0.1041 165.23)",
+          "oklch(39% 0.1041 165.23)",
+          "oklch(51% 0.1041 165.23)",
+          "oklch(63% 0.1041 165.23)",
+          "oklch(75% 0.1041 165.23)",
+          "oklch(87% 0.1041 165.23)",
+          "oklch(95% 0.1041 165.23)"
+        ]
+      },
+      "danger": {
+        "role": "semantic",
+        "displayName": "Error Red",
+        "tonalRamp": [
+          "oklch(15% 0.1566 20.94)",
+          "oklch(27% 0.1566 20.94)",
+          "oklch(39% 0.1566 20.94)",
+          "oklch(51% 0.1566 20.94)",
+          "oklch(63% 0.1566 20.94)",
+          "oklch(75% 0.1566 20.94)",
+          "oklch(87% 0.1566 20.94)",
+          "oklch(95% 0.1566 20.94)"
+        ]
+      },
+      "danger-deep": {
+        "role": "semantic",
+        "displayName": "Deep Error Red",
+        "tonalRamp": [
+          "oklch(15% 0.1333 20.53)",
+          "oklch(27% 0.1333 20.53)",
+          "oklch(39% 0.1333 20.53)",
+          "oklch(51% 0.1333 20.53)",
+          "oklch(63% 0.1333 20.53)",
+          "oklch(75% 0.1333 20.53)",
+          "oklch(87% 0.1333 20.53)",
+          "oklch(95% 0.1333 20.53)"
+        ]
+      },
+      "danger-surface": {
+        "role": "semantic",
+        "displayName": "Error Red Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0165 8.17)",
+          "oklch(27% 0.0165 8.17)",
+          "oklch(39% 0.0165 8.17)",
+          "oklch(51% 0.0165 8.17)",
+          "oklch(63% 0.0165 8.17)",
+          "oklch(75% 0.0165 8.17)",
+          "oklch(87% 0.0165 8.17)",
+          "oklch(95% 0.0165 8.17)"
+        ]
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Attention Amber",
+        "tonalRamp": [
+          "oklch(15% 0.1047 64.23)",
+          "oklch(27% 0.1047 64.23)",
+          "oklch(39% 0.1047 64.23)",
+          "oklch(51% 0.1047 64.23)",
+          "oklch(63% 0.1047 64.23)",
+          "oklch(75% 0.1047 64.23)",
+          "oklch(87% 0.1047 64.23)",
+          "oklch(95% 0.1047 64.23)"
+        ]
+      },
+      "warning-surface": {
+        "role": "semantic",
+        "displayName": "Attention Amber Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0356 83.78)",
+          "oklch(27% 0.0356 83.78)",
+          "oklch(39% 0.0356 83.78)",
+          "oklch(51% 0.0356 83.78)",
+          "oklch(63% 0.0356 83.78)",
+          "oklch(75% 0.0356 83.78)",
+          "oklch(87% 0.0356 83.78)",
+          "oklch(95% 0.0356 83.78)"
+        ]
+      },
+      "focus-peach": {
+        "role": "accent",
+        "displayName": "Focus Peach",
+        "tonalRamp": [
+          "oklch(15% 0.0841 44.65)",
+          "oklch(27% 0.0841 44.65)",
+          "oklch(39% 0.0841 44.65)",
+          "oklch(51% 0.0841 44.65)",
+          "oklch(63% 0.0841 44.65)",
+          "oklch(75% 0.0841 44.65)",
+          "oklch(87% 0.0841 44.65)",
+          "oklch(95% 0.0841 44.65)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Public Display",
+        "purpose": "The public hosting statement, with responsive overrides."
+      },
+      "headline": {
+        "displayName": "Public Headline",
+        "purpose": "Public showcase and FAQ section statements."
+      },
+      "title": {
+        "displayName": "Workspace Title",
+        "purpose": "Administrator page titles."
+      },
+      "metric": {
+        "displayName": "Resource Metric",
+        "purpose": "Prominent measurements; use tabular numerals."
+      },
+      "body": {
+        "displayName": "Workspace Body",
+        "purpose": "Workspace body, form labels, and editable inputs at 1rem with a 1.6 reading rhythm."
+      },
+      "body-public": {
+        "displayName": "Public Body",
+        "purpose": "Public body copy with a more open reading rhythm; prose ranges from 16px to 18px."
+      },
+      "action": {
+        "displayName": "Workspace Action",
+        "purpose": "Readable semibold workspace controls and navigation at .9375rem."
+      },
+      "action-public": {
+        "displayName": "Public Action",
+        "purpose": "Public navigation and primary actions at 1rem; intermediate requested weight selects a supplied font face."
+      },
+      "label": {
+        "displayName": "Workspace Label",
+        "purpose": "Metadata, helper copy, status labels, and table headings at .875rem."
+      },
+      "panel-title": {
+        "displayName": "Workspace Panel Title",
+        "purpose": "Readable administrator section headings at 1.125rem."
+      }
+    },
+    "shadows": [
+      {
+        "name": "public-receipt",
+        "value": "0 24px 60px #102f9026",
+        "purpose": "Editable public example on the cobalt field."
+      },
+      {
+        "name": "workspace-menu",
+        "value": "0 12px 35px #152b4920",
+        "purpose": "Temporary row action menus."
+      },
+      {
+        "name": "workspace-dialog",
+        "value": "0 25px 80px #152b4926",
+        "purpose": "Focused task overlays."
+      },
+      {
+        "name": "workspace-toast",
+        "value": "0 12px 32px #152b4920",
+        "purpose": "Transient feedback."
+      },
+      {
+        "name": "public-mobile-menu",
+        "value": "0 12px 24px #152b4912",
+        "purpose": "Expanded public navigation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "workspace-hover",
+        "value": "150ms",
+        "purpose": "Background and button-shadow state transitions."
+      },
+      {
+        "name": "public-hover",
+        "value": "180ms",
+        "purpose": "Public background and text-color transitions."
+      },
+      {
+        "name": "drawer-and-faq",
+        "value": "200ms",
+        "purpose": "Workspace drawer translation and public FAQ icon rotation."
+      },
+      {
+        "name": "toast-entrance",
+        "value": "200ms ease-out",
+        "purpose": "Upward fade from translateY(8px) to rest."
+      },
+      {
+        "name": "public-progress",
+        "value": "800ms linear infinite",
+        "purpose": "Rotating working-stage marker."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Disable animations and transitions; remove smooth scrolling."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "public-wide",
+        "value": "1600px"
+      },
+      {
+        "name": "workspace-compact",
+        "value": "1250px"
+      },
+      {
+        "name": "public-compact",
+        "value": "1100px"
+      },
+      {
+        "name": "workspace-single-column",
+        "value": "1050px"
+      },
+      {
+        "name": "public-stacked",
+        "value": "800px"
+      },
+      {
+        "name": "workspace-drawer",
+        "value": "760px"
+      },
+      {
+        "name": "compact-forms",
+        "value": "600px"
+      },
+      {
+        "name": "small-mobile",
+        "value": "420px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Workspace Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Readable semibold workspace action with an explicit keyboard focus state.",
+      "html": "<button type=\"button\" class=\"ds-button-primary\">Create instance</button>",
+      "css": ".ds-button-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 16px;border:1px solid transparent;border-radius:8px;font-size:.9375rem;font-weight:600;line-height:1.6;white-space:nowrap;cursor:pointer;box-shadow:none;transition:background .15s,box-shadow .15s;font-family:Manrope,sans-serif;background:var(--primary,#254bdf);color:#fff;}.ds-button-primary:hover{background:#1737b1;}.ds-button-primary:focus-visible{outline:3px solid var(--primary,#254bdf);outline-offset:4px;}.ds-button-primary:disabled{cursor:wait;opacity:.55;}@media (prefers-reduced-motion:reduce){.ds-button-primary{transition:none;animation:none;}}"
+    },
+    {
+      "name": "Workspace Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Readable semibold workspace action with an explicit keyboard focus state.",
+      "html": "<button type=\"button\" class=\"ds-button-secondary\">Cancel</button>",
+      "css": ".ds-button-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 16px;border:1px solid transparent;border-radius:8px;font-size:.9375rem;font-weight:600;line-height:1.6;white-space:nowrap;cursor:pointer;box-shadow:none;transition:background .15s,box-shadow .15s;font-family:Manrope,sans-serif;background:#fff;color:var(--text,#152b49);border-color:var(--line,#dce4ef);}.ds-button-secondary:hover{background:var(--pale,#edf2ff);}.ds-button-secondary:focus-visible{outline:3px solid var(--primary,#254bdf);outline-offset:4px;}.ds-button-secondary:disabled{cursor:wait;opacity:.55;}@media (prefers-reduced-motion:reduce){.ds-button-secondary{transition:none;animation:none;}}"
+    },
+    {
+      "name": "Workspace Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Readable semibold workspace action with an explicit keyboard focus state.",
+      "html": "<button type=\"button\" class=\"ds-button-danger\">Delete instance</button>",
+      "css": ".ds-button-danger{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 16px;border:1px solid transparent;border-radius:8px;font-size:.9375rem;font-weight:600;line-height:1.6;white-space:nowrap;cursor:pointer;box-shadow:none;transition:background .15s,box-shadow .15s;font-family:Manrope,sans-serif;background:#a52c36;color:#fff;}.ds-button-danger:hover{background:#84212a;}.ds-button-danger:focus-visible{outline:3px solid var(--primary,#254bdf);outline-offset:4px;}.ds-button-danger:disabled{cursor:wait;opacity:.55;}@media (prefers-reduced-motion:reduce){.ds-button-danger{transition:none;animation:none;}}"
+    },
+    {
+      "name": "Public Primary Button",
+      "kind": "button",
+      "refersTo": "button-public-primary",
+      "description": "Larger cobalt action for public hosting requests.",
+      "html": "<a class=\"ds-public-primary\" href=\"#get-started\">Request hosting</a>",
+      "css": ".ds-public-primary{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:12px 21px;border:0;border-radius:8px;font-size:1rem;font-weight:700;line-height:1.4;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .18s,color .18s;font-family:Manrope,sans-serif;background:var(--blue,#254bdf);color:#fff;}.ds-public-primary:hover{background:var(--blue-dark,#1737b1);}.ds-public-primary:focus-visible{outline:3px solid #f6b69a;outline-offset:5px;}@media (prefers-reduced-motion:reduce){.ds-public-primary{transition:none;animation:none;}}"
+    },
+    {
+      "name": "Public Reverse Button",
+      "kind": "button",
+      "refersTo": "button-public-on-blue",
+      "description": "White public action shown against a cobalt information field.",
+      "html": "<div class=\"ds-reverse-ground\"><a class=\"ds-public-reverse\" href=\"#get-started\">Find a home for your project<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-5-5 5 5-5 5\"/></svg></a></div>",
+      "css": ".ds-reverse-ground{background:var(--blue,#254bdf);padding:24px;border-radius:16px;}.ds-public-reverse{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:12px 21px;border:0;border-radius:8px;font-size:1rem;font-weight:700;line-height:1.4;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .18s,color .18s;font-family:Manrope,sans-serif;background:#fff;color:var(--blue,#254bdf);}.ds-public-reverse svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}.ds-public-reverse:hover{background:#e4ecff;}.ds-public-reverse:focus-visible{outline:3px solid #f6b69a;outline-offset:5px;}@media (prefers-reduced-motion:reduce){.ds-public-reverse{transition:none;animation:none;}}"
+    },
+    {
+      "name": "Resource Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "A readable labeled administrator field with body-size input text, a blue-gray edge, and cobalt focus.",
+      "html": "<label class=\"ds-resource-label\" for=\"ds-memory\">RAM limit (MiB)</label><input class=\"ds-resource-input\" id=\"ds-memory\" type=\"number\" min=\"128\" step=\"64\" value=\"512\"><p class=\"ds-resource-hint\">RAM is used on demand.</p>",
+      "css": ".ds-resource-label{display:block;color:var(--text,#152b49);font-size:1rem;font-weight:500;font-family:Manrope,sans-serif;line-height:1.6;}.ds-resource-input{box-sizing:border-box;display:block;width:160px;padding:8px 10px;margin:7px 0 4px;border:1px solid #bdcae0;border-radius:7px;background:#fff;color:var(--text,#152b49);font-size:1rem;line-height:1.6;caret-color:var(--primary,#254bdf);font-family:Manrope,sans-serif;min-height:42px;}.ds-resource-input:focus-visible{outline:2px solid var(--primary,#254bdf);outline-offset:2px;}.ds-resource-hint{margin:7px 0 0;color:var(--muted,#586b85);font-size:.875rem;font-family:Manrope,sans-serif;line-height:1.6;}"
+    },
+    {
+      "name": "Workspace Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "Active cobalt destination, quiet inactive destination, and a trailing count.",
+      "html": "<nav class=\"ds-workspace-nav\" aria-label=\"Workspace sample\"><a class=\"ds-nav-item ds-nav-active\" href=\"#overview\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/></svg>Overview</a><a class=\"ds-nav-item\" href=\"#instances\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"7\" rx=\"2\"/><rect x=\"3\" y=\"14\" width=\"18\" height=\"7\" rx=\"2\"/><path d=\"M7 6.5h.01M7 17.5h.01M16 6.5h2M16 17.5h2\"/></svg>Instances<span class=\"ds-nav-count\">5</span></a></nav>",
+      "css": ".ds-workspace-nav{width:224px;background:#fff;font-family:Manrope,sans-serif;max-width:100%;}.ds-nav-item{display:flex;align-items:center;gap:12px;min-height:44px;padding:12px 14px;margin-bottom:5px;border-radius:8px;color:var(--muted,#586b85);font-size:.9375rem;line-height:1.6;text-decoration:none;transition:background .15s;}.ds-nav-item svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;flex:none;}.ds-nav-item:hover{background:#f0f4fd;color:var(--text,#152b49);}.ds-nav-item:focus-visible{outline:3px solid var(--primary,#254bdf);outline-offset:4px;}.ds-nav-active,.ds-nav-active:hover{background:var(--primary,#254bdf);color:#fff;font-weight:800;}.ds-nav-count{margin-left:auto;padding:1px 6px;border-radius:5px;background:var(--pale,#edf2ff);color:var(--muted,#586b85);font-size:.875rem;}@media (prefers-reduced-motion:reduce){.ds-nav-item{transition:none;animation:none;}}"
+    },
+    {
+      "name": "Semantic Status Labels",
+      "kind": "chip",
+      "refersTo": "status-success",
+      "description": "Text and dots keep operational states explicit.",
+      "html": "<div class=\"ds-statuses\"><span class=\"ds-status ds-status-success\"><span class=\"ds-status-dot\"></span>Running</span><span class=\"ds-status ds-status-warning\"><span class=\"ds-status-dot\"></span>Provisioning</span><span class=\"ds-status ds-status-danger\"><span class=\"ds-status-dot\"></span>Failed</span></div>",
+      "css": ".ds-statuses{display:flex;flex-wrap:wrap;gap:8px;}.ds-status{display:inline-flex;align-items:center;gap:5px;padding:4px 7px;border:0;border-radius:5px;font-size:.875rem;font-weight:600;line-height:1.6;font-family:Manrope,sans-serif;}.ds-status-dot{width:5px;height:5px;border-radius:50%;background:currentColor;}.ds-status-success{background:#e6f4ee;color:#176448;}.ds-status-success .ds-status-dot{background:#228563;}.ds-status-warning{background:#fff2d9;color:#88510d;}.ds-status-warning .ds-status-dot{background:#b67910;}.ds-status-danger{background:#fbecee;color:#a52c36;}"
+    },
+    {
+      "name": "Shared Metric Rail",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Flat resource summaries share a ruled white working surface.",
+      "html": "<section class=\"ds-metric-rail\" aria-label=\"Sample server measurements\"><div class=\"ds-metric-cell\"><p class=\"ds-metric-label\">Instances</p><p class=\"ds-metric-value\">5</p><p class=\"ds-metric-note\">4 running</p></div><div class=\"ds-metric-cell\"><p class=\"ds-metric-label\">CPU usage</p><p class=\"ds-metric-value\">12<small>%</small></p><p class=\"ds-metric-note\">Sample measurement</p></div></section>",
+      "css": ".ds-metric-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:540px;padding:6px 0;border:1px solid var(--line,#dce4ef);border-radius:14px;overflow:hidden;background:#fff;font-family:Manrope,sans-serif;}.ds-metric-cell{padding:19px 22px 18px;}.ds-metric-cell+.ds-metric-cell{border-left:1px solid var(--line,#dce4ef);}.ds-metric-label{margin:0 0 13px;color:var(--muted,#586b85);font-size:.875rem;line-height:1.6;}.ds-metric-value{margin:0;color:var(--text,#152b49);font-size:31px;font-weight:800;line-height:1.25;letter-spacing:-.035em;font-variant-numeric:tabular-nums;}.ds-metric-value small{font-size:1rem;color:var(--muted,#586b85);}.ds-metric-note{margin:10px 0 0;color:var(--muted,#586b85);font-size:.875rem;line-height:1.6;}"
+    },
+    {
+      "name": "Illustrative Instance Receipt",
+      "kind": "custom",
+      "refersTo": "instance-receipt",
+      "description": "Public demonstration pattern with an editable name and explicit provisioning stages; this snippet is a visual sample.",
+      "html": "<section class=\"ds-receipt\" aria-label=\"Illustrative instance receipt\"><div class=\"ds-receipt-heading\"><h2>A place for your idea</h2><span>Try it</span></div><p class=\"ds-receipt-intro\">One PocketBase instance, coming up.</p><label for=\"ds-project-name\">Give your project a name</label><input id=\"ds-project-name\" value=\"field-notes\" autocomplete=\"off\" spellcheck=\"false\"><p class=\"ds-domain-preview\">Illustrative URL: field-notes.pbmanager.example</p><button class=\"ds-receipt-button\" type=\"button\">Try a deployment<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-5-5 5 5-5 5\"/></svg></button><ul class=\"ds-stages\"><li><span class=\"ds-step-mark\"></span>PocketBase service<span class=\"ds-step-state\">Ready</span></li><li><span class=\"ds-step-mark\"></span>Domain &amp; HTTPS<span class=\"ds-step-state\">Ready</span></li><li><span class=\"ds-step-mark\"></span>Your dashboard<span class=\"ds-step-state\">Ready</span></li></ul><p class=\"ds-receipt-status\">Interactive example. No server is created.</p></section>",
+      "css": ".ds-receipt{box-sizing:border-box;max-width:380px;padding:26px;background:#fff;border-radius:16px;color:var(--ink,#152b49);box-shadow:0 24px 60px #102f9026;font-family:Manrope,sans-serif;}.ds-receipt-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;}.ds-receipt-heading h2{margin:0;font-size:18px;font-weight:800;line-height:1.08;letter-spacing:-.025em;}.ds-receipt-heading>span{color:var(--blue,#254bdf);background:#edf2ff;padding:4px 8px;border-radius:5px;font-size:.875rem;font-weight:700;flex-shrink:0;}.ds-receipt-intro{margin:3px 0 0;padding-bottom:23px;border-bottom:1px solid var(--line,#dce4ef);color:var(--muted,#586b85);font-size:.875rem;line-height:1.65;}.ds-receipt label{display:block;margin:22px 0 8px;font-size:.875rem;font-weight:700;}.ds-receipt input{box-sizing:border-box;width:100%;min-height:46px;padding:12px;border:1px solid #bdcae0;border-radius:7px;color:var(--ink,#152b49);background:#fff;font-size:1rem;caret-color:var(--blue,#254bdf);font-family:Manrope,sans-serif;line-height:1.65;}.ds-receipt input:focus-visible{outline:2px solid var(--blue,#254bdf);outline-offset:2px;}.ds-domain-preview{margin:8px 0 18px;color:var(--muted,#586b85);font-size:.875rem;line-height:1.65;overflow-wrap:anywhere;font-variant-numeric:tabular-nums;}.ds-receipt-button{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:12px 21px;border:0;border-radius:8px;font-size:1rem;font-weight:700;line-height:1.4;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .18s,color .18s;font-family:Manrope,sans-serif;width:100%;min-height:46px;justify-content:space-between;background:var(--blue,#254bdf);color:#fff;}.ds-receipt-button:hover{background:var(--blue-dark,#1737b1);}.ds-receipt-button:focus-visible{outline:3px solid #f6b69a;outline-offset:5px;}.ds-receipt-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}.ds-stages{display:grid;gap:14px;margin:22px 0 0;padding:0;list-style:none;}.ds-stages li{display:flex;align-items:center;gap:9px;font-size:.875rem;line-height:1.65;flex-wrap:wrap;}.ds-step-mark{width:19px;height:19px;border:1px solid #ced8e8;border-radius:50%;}.ds-step-state{margin-left:auto;color:var(--muted,#586b85);font-size:.875rem;}.ds-receipt-status{margin:19px 0 0;padding-top:13px;border-top:1px solid var(--line,#dce4ef);color:var(--muted,#586b85);font-size:.875rem;line-height:1.65;}@media (prefers-reduced-motion:reduce){.ds-receipt-button{transition:none;animation:none;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Public Utility Service Board",
+    "overview": "PBManager gives a developer's PocketBase a dependable home. Its visual language combines confident cobalt information fields, cloud-white working surfaces, ink-blue lettering, square-ended rules, and softly rectangular controls. The tone is welcoming and practical; concise labels and visible service states do the explaining.\n\nPublic surfaces can use broad cobalt fields and large lettering. The administrator workspace uses the same identity with white panels on a pale cloud canvas, compact information, and restrained saturation. Operational meaning comes first: status colors accompany readable labels, measurements use aligned numerals, and examples remain visibly distinct from live infrastructure.",
+    "keyCharacteristics": [
+      "Cobalt identity with quieter operational surfaces.",
+      "Locally served Manrope for both expressive headlines and precise controls.",
+      "Flat panels, fine rules, and selective overlays.",
+      "Semantic status colors paired with explicit text.",
+      "An interactive instance receipt as a product-specific demonstration pattern."
+    ],
+    "rules": [
+      {
+        "name": "The State Has Meaning Rule",
+        "body": "Use success green for healthy or completed states, danger red for errors and destructive actions, and warning amber for attention or work in progress. Pair every state with words; color and dots alone are insufficient.",
+        "section": "colors"
+      },
+      {
+        "name": "The Quiet Workspace Rule",
+        "body": "Keep the administrator canvas cloud-white and its working panels white. Concentrate cobalt in actions, active destinations, and selected data; broad cobalt fields belong to expressive public surfaces.",
+        "section": "colors"
+      },
+      {
+        "name": "The Clear Label Rule",
+        "body": "Keep labels concise and use sentence case. Use the established rem-based roles for readable controls and metadata; preserve body and input sizes on narrow screens rather than shrinking the type to fit.",
+        "section": "typography"
+      },
+      {
+        "name": "The Working Surface Rule",
+        "body": "Use flat, bordered working panels. Reserve substantial shadows for overlays and the public receipt rather than applying elevation to every container.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** use the cobalt, cloud-white, and ink-blue palette across public and administrator surfaces.",
+      "**Do** pair semantic status color with a readable state label.",
+      "**Do** use the local Manrope assets and preserve the compact, sentence-case control language.",
+      "**Do** keep tables horizontally scrollable inside their own contained region on narrow screens.",
+      "**Do** keep keyboard focus visible and honor reduced-motion preferences.",
+      "**Do** distinguish illustrative deployment progress and demo measurements from live operations."
+    ],
+    "donts": [
+      "**Don't** make every operational panel a raised card or fill the workspace with large cobalt backgrounds.",
+      "**Don't** use semantic red, green, or amber as arbitrary decorative accents.",
+      "**Don't** replace service labels with unexplained colored dots or icons.",
+      "**Don't** turn public demo feedback into claims of real provisioning, availability, or performance.",
+      "**Don't** shrink supporting labels below the established functional text minima."
+    ]
+  }
+}
