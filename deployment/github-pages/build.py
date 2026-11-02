@@ -80,11 +80,18 @@ def main() -> None:
     destination = ROOT / "docs" / "demo"
     destination.mkdir(parents=True, exist_ok=True)
     (destination / "index.html").write_text(html)
-    landing = (ROOT / "deployment" / "github-pages" / "landing.html").read_text()
-    landing = landing.replace("/* FONT_FACES */", "\n".join(fonts))
-    (ROOT / "docs" / "index.html").write_text(landing)
+    source = ROOT / "deployment" / "github-pages"
+    styles = (source / "marketing.css").read_text()
+    for template, target in [("landing.html", "index.html"), ("agents.html", "agents/index.html")]:
+        page = (source / template).read_text()
+        page = page.replace("/* FONT_FACES */", "\n".join(fonts))
+        page = page.replace("/* SITE_STYLES */", styles)
+        output = ROOT / "docs" / target
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(page)
     (ROOT / "docs" / ".nojekyll").write_text("Static PBManager hosting page and browser-local dashboard demo.\n")
     print(f"GitHub Pages landing page: {ROOT / 'docs' / 'index.html'}")
+    print(f"GitHub Pages agent page: {ROOT / 'docs' / 'agents' / 'index.html'}")
     print(f"GitHub Pages demo: {destination / 'index.html'}")
 
 

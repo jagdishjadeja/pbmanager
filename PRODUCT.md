@@ -8,7 +8,7 @@ web
 
 ## Users
 
-Developers building applications with PocketBase. The public page introduces managed hosting. The private management dashboard is operated by an administrator.
+Developers building applications and agent workflows with PocketBase. The public pages introduce managed hosting and a database for agents. The private management dashboard is operated by an administrator.
 
 ## Product Purpose
 
@@ -16,7 +16,7 @@ PBManager presents managed PocketBase hosting and provides a control plane for p
 
 ## Positioning
 
-Managed hosting built around PocketBase, with instance management, domain and HTTPS progress, service controls, logs, and resource visibility in one dashboard. The user confirmed managed hosting as the public positioning.
+Managed hosting built around PocketBase, with instance management, domain and HTTPS progress, service controls, logs, and resource visibility in one dashboard. The public positioning combines managed hosting with a database for agents: MCP access to records and schemas, and persistent shared tasks. The user requested this agent positioning on the landing page and a dedicated page.
 
 ## Operating Context
 
@@ -28,6 +28,8 @@ The manager uses Go and PocketBase, Caddy for HTTPS and routing, systemd for ins
 - Start, stop, restart, inspect logs, and monitor storage, CPU, memory, and traffic.
 - Attach custom domains and display DNS, ownership verification, and HTTPS progress.
 - Publish static websites alongside PocketBase.
+- Connect MCP clients to existing instances through named, revocable tokens scoped to one or all instances. Tokens provide superadmin read/write access within their assigned instances.
+- Expose `list_instances`, `pocketbase_request`, `list_tasks`, `create_task`, and `update_task`; shared tasks persist in the manager. MCP does not provision instances or automatically ingest conversations.
 - Public dashboard demo uses browser-local sample data and does not provision real hosting.
 - The application currently has administrator authentication, not customer signup or billing.
 - Hosting prices, service availability commitments, customer numbers, and support response commitments are undecided. Do not invent them.
