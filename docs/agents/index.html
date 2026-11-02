@@ -43,6 +43,28 @@
 @media(max-width:380px){.nav-button{display:none}.menu-toggle{flex-shrink:0;min-width:44px}}
 
 
+/* Keep the agent destination prominent without shifting the navigation. */
+@property --agent-border-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+.site-nav .agents-feature{
+  --agent-border-angle:0deg;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:9px 12px;border:1.5px solid var(--blue);border-radius:8px;
+  color:var(--blue);background:var(--cloud);font-weight:800;white-space:nowrap;
+}
+@supports(background:conic-gradient(from 0deg,white,black)){
+  .site-nav .agents-feature{
+    border-color:transparent;
+    background:linear-gradient(var(--cloud),var(--cloud)) padding-box,
+      conic-gradient(from var(--agent-border-angle),var(--light-blue) 0deg,var(--blue) 110deg,var(--orange) 160deg,var(--blue) 210deg,var(--light-blue) 300deg) border-box;
+    animation:agent-border-travel 4s linear infinite;
+  }
+}
+.site-nav .agents-feature:hover,.site-nav .agents-feature:focus-visible{color:var(--blue-dark);text-decoration:underline;text-underline-offset:5px;animation-play-state:paused}
+@keyframes agent-border-travel{to{--agent-border-angle:360deg}}
+@media(min-width:801px) and (max-width:1100px){.site-nav .agents-feature{padding-inline:8px}.site-nav{gap:12px}}
+@media(max-width:800px){.site-nav .agents-feature{align-self:flex-start;margin-bottom:8px;padding:10px 14px;min-height:44px}}
+@media(prefers-reduced-motion:reduce){.site-nav .agents-feature{animation:none;border-color:var(--blue);background:var(--cloud)}}
+
     </style>
   </head>
   <body>
@@ -60,7 +82,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header container">
       <a class="brand" href="../" aria-label="PBManager home"><span class="brand-icon"><svg aria-hidden="true"><use href="#i-server"/></svg></span>pbmanager</a>
-      <nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="./" aria-current="page">For agents</a><a href="../#features">Why PBManager</a><a href="../#dashboard">The dashboard</a><a href="#questions">Questions?</a></nav>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation"><a class="agents-feature" href="./" aria-current="page">For agents</a><a href="../#features">Why PBManager</a><a href="../#dashboard">The dashboard</a><a href="#questions">Questions?</a></nav>
       <div class="nav-actions"><a class="source-link" href="https://github.com/jagdishjadeja/pbmanager" aria-label="View PBManager on GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a><a class="button button-blue nav-button" href="#get-started">Request hosting</a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
     </header>
     <main id="main">
