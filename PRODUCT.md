@@ -8,7 +8,7 @@ web
 
 ## Users
 
-Developers building applications and agent workflows with PocketBase. The public pages introduce managed hosting and a database for agents. The private management dashboard is operated by an administrator.
+Developers, freelancers, and agency operators building applications and agent workflows with PocketBase. The public pages introduce managed hosting, static frontend publishing, custom domains, a database for agents, and self-hosting, with dedicated developer and agency use cases. The private management dashboard is operated by an administrator.
 
 ## Product Purpose
 

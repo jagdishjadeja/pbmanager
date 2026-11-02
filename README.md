@@ -22,7 +22,7 @@ docs/                 GitHub Pages hosting page, dashboard demo, and screenshot
 
 ## GitHub Pages website and demo
 
-The managed hosting landing page is hosted at **https://jagdishjadeja.github.io/pbmanager/**. Its source is `deployment/github-pages/landing.html`. The [database for agents page](https://jagdishjadeja.github.io/pbmanager/agents/) is authored in `deployment/github-pages/agents.html`. Both use `deployment/github-pages/marketing.css`, inlined by the build alongside the local fonts. Hosting requests open a GitHub issue; the static website does not implement customer registration, billing, or real server provisioning.
+The managed hosting landing page is hosted at **https://jagdishjadeja.github.io/pbmanager/**. Its source is `deployment/github-pages/landing.html`. The [database for agents page](https://jagdishjadeja.github.io/pbmanager/agents/) is authored in `deployment/github-pages/agents.html`. All marketing pages share `deployment/github-pages/marketing.css` and navigation from `marketing.py` / `navigation.js`, inlined by the build alongside the local fonts. Six additional product and audience pages are authored in `marketing-pages.json`: managed PocketBase, frontend hosting, custom domains, developers and freelancers, agencies, and self-hosting. The build also generates `docs/sitemap.xml`. Hosting requests open a GitHub issue; the static website does not implement customer registration, billing, or real server provisioning.
 
 The interactive dashboard is at **https://jagdishjadeja.github.io/pbmanager/demo/**. It uses the same Astro dashboard with demo mode enabled and packages styles, JavaScript, fonts, and the favicon into `docs/demo/index.html`. The landing page embeds that demo so visitors can explore the actual interface.
 
@@ -31,9 +31,10 @@ To rebuild it after changing the frontend, install frontend dependencies and run
 ```sh
 pnpm --dir frontend install --frozen-lockfile
 python3 deployment/github-pages/build.py
+python3 deployment/github-pages/check.py
 ```
 
-Commit the updated `docs/index.html`, `docs/agents/index.html`, `docs/demo/index.html`, and `docs/.nojekyll`, along with the page sources and build script. GitHub Pages publishes `main` → `/docs` through **Settings → Pages → Deploy from a branch**. The Go backend and root agent are deployed separately on your VPS using the instructions below. This release refreshes the admin interface in source and in the public demo; it does not update a separately running VPS automatically.
+Commit the generated marketing routes in `docs/`, `docs/sitemap.xml`, `docs/demo/index.html`, and `docs/.nojekyll`, along with the page sources and build script. GitHub Pages publishes `main` → `/docs` through **Settings → Pages → Deploy from a branch**. The Go backend and root agent are deployed separately on your VPS using the instructions below. This release refreshes the admin interface in source and in the public demo; it does not update a separately running VPS automatically.
 
 ## Deploy on your own VPS
 

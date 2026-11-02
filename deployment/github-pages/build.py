@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+from marketing import decorate, pages, product_page
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -82,16 +83,23 @@ def main() -> None:
     (destination / "index.html").write_text(html)
     source = ROOT / "deployment" / "github-pages"
     styles = (source / "marketing.css").read_text()
-    for template, target in [("landing.html", "index.html"), ("agents.html", "agents/index.html")]:
-        page = (source / template).read_text()
-        page = page.replace("/* FONT_FACES */", "\n".join(fonts))
-        page = page.replace("/* SITE_STYLES */", styles)
-        output = ROOT / "docs" / target
+    shell = (source / "landing.html").read_text()
+    documents = [("", shell), ("agents", (source / "agents.html").read_text())]
+    documents.extend((item["slug"], product_page(item, shell)) for item in pages())
+    for route, content in documents:
+        page = decorate(content, route, "\n".join(fonts), styles)
+        output = ROOT / "docs" / route / "index.html"
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(page)
+    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for route, _ in documents:
+        sitemap += f'  <url><loc>{SITE_URL}{route + "/" if route else ""}</loc></url>\n'
+    sitemap += '</urlset>\n'
+    (ROOT / "docs" / "sitemap.xml").write_text(sitemap)
     (ROOT / "docs" / ".nojekyll").write_text("Static PBManager hosting page and browser-local dashboard demo.\n")
     print(f"GitHub Pages landing page: {ROOT / 'docs' / 'index.html'}")
     print(f"GitHub Pages agent page: {ROOT / 'docs' / 'agents' / 'index.html'}")
+    print(f"Marketing pages generated: {len(documents)}")
     print(f"GitHub Pages demo: {destination / 'index.html'}")
 
 

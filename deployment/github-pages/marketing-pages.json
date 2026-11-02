@@ -1,0 +1,484 @@
+[
+  {
+    "slug": "managed-pocketbase",
+    "title": "Managed PocketBase hosting",
+    "heading": [
+      "Your PocketBase.",
+      "Less server work."
+    ],
+    "description": "Give your app its own PocketBase instance, with a domain, HTTPS, and a clear view of how it is running. Spend your time on the product while PBManager brings the hosting controls together.",
+    "proof_title": "One instance. The essentials together.",
+    "proof_rows": [
+      [
+        "Database",
+        "Collections and records"
+      ],
+      [
+        "App backend",
+        "Authentication and file storage"
+      ],
+      [
+        "Public address",
+        "Domain with HTTPS"
+      ],
+      [
+        "Operations",
+        "Service controls and resource usage"
+      ]
+    ],
+    "proof_note": "Capabilities of a managed instance. Resource allocation is agreed for your project.",
+    "benefit_title": "The backend you know.\nA clearer place to run it.",
+    "benefit_intro": "Use PocketBase for your application data. Use PBManager to see and manage the infrastructure around it.",
+    "benefits": [
+      [
+        "A separate home for each project.",
+        "Each instance has its own service, Linux account, and bounded storage volume. Give each application a distinct database and address without handling every service manually."
+      ],
+      [
+        "See what is using your resources.",
+        "Check database and total storage, CPU, memory, and traffic from the manager. Inspect service logs and start, stop, or restart an instance from its detail page."
+      ],
+      [
+        "Keep humans and agents working together.",
+        "Use the familiar PocketBase admin for hands-on changes. Connect an MCP client with a named token when an agent needs to work with records, schemas, or shared tasks."
+      ]
+    ],
+    "steps_title": "From a project to a managed instance.",
+    "steps": [
+      [
+        "Tell us what you are building.",
+        "Share your app, expected storage, traffic, and any domain requirements in a hosting request. Availability, resources, and pricing are confirmed before you commit."
+      ],
+      [
+        "Get your instance set up.",
+        "An administrator provisions the PocketBase service and its default address. Domain and HTTPS progress are visible in PBManager."
+      ],
+      [
+        "Connect your app and build.",
+        "Use your instance’s PocketBase APIs, configure the access rules your app needs, and follow its usage as your project grows."
+      ]
+    ],
+    "note": "Hosting access is arranged through a request. There is no automated customer checkout or published uptime commitment on this site.",
+    "faq": [
+      [
+        "Is this a hosted fork of PocketBase?",
+        "PBManager runs PocketBase and manages the hosting around it. You keep the familiar admin interface, collections, authentication, file storage, and APIs."
+      ],
+      [
+        "Can I put my frontend here too?",
+        "Yes. Publish built static files or a standalone HTML page alongside your instance. The frontend hosting page explains the supported workflow and limits."
+      ],
+      [
+        "What does hosting cost?",
+        "Tell us about your project. Hosting availability, allocation, and pricing are confirmed individually; this site does not take payments."
+      ]
+    ],
+    "related": [
+      "frontend-hosting",
+      "custom-domains",
+      "agents"
+    ],
+    "closing": "Give your app a good home.",
+    "closing_description": "A real PocketBase instance, with its hosting in one place."
+  },
+  {
+    "slug": "frontend-hosting",
+    "title": "Static frontend hosting",
+    "heading": [
+      "Your frontend.",
+      "Beside your data."
+    ],
+    "description": "Publish a static website alongside your PocketBase instance. Upload your built assets or a single HTML file, and serve the interface and its backend from the same project.",
+    "proof_title": "One address, three destinations.",
+    "proof_rows": [
+      [
+        "/",
+        "Your published website"
+      ],
+      [
+        "/api/",
+        "PocketBase API"
+      ],
+      [
+        "/_/",
+        "PocketBase admin"
+      ]
+    ],
+    "proof_note": "Route layout for a managed instance. The same site is served on attached customer domains.",
+    "benefit_title": "Build locally.\nPublish the finished site.",
+    "benefit_intro": "A practical home for landing pages, small tools, and frontends that can be exported as static files.",
+    "benefits": [
+      [
+        "Bring the output of your build.",
+        "Upload a ZIP containing index.html and your built assets, or a standalone HTML file. A ZIP can contain the files directly or a single enclosing build directory."
+      ],
+      [
+        "Update the site without replacing the database.",
+        "Publishing replaces the managed website files. PocketBase’s API, admin interface, and application data remain separate from the website upload. Invalid archives leave the previous site in place."
+      ],
+      [
+        "Use a project file account for small edits.",
+        "Scoped SFTP access lets you read, upload, and overwrite website files in the project’s existing folders. Use a ZIP upload when you need to publish a new directory structure."
+      ]
+    ],
+    "steps_title": "Your build, ready for the browser.",
+    "steps": [
+      [
+        "Generate static output.",
+        "Run your framework’s production build or static export locally. Check that the output works as static files and does not require a running Node.js or other application server."
+      ],
+      [
+        "Package the site.",
+        "Include index.html and the required assets. Uploads allow up to 50 MiB compressed, 100 MiB extracted, and 5,000 archive entries."
+      ],
+      [
+        "Publish from the instance.",
+        "Open Static website in PBManager and choose Upload site. Your site uses the instance’s address and any verified customer domains."
+      ]
+    ],
+    "note": "This is static file hosting. Server-rendered applications need a static export first. Uploaded files count toward the instance’s storage allowance; test your application’s routing before launch.",
+    "faq": [
+      [
+        "Can I host a React, Vue, or Svelte frontend?",
+        "Yes, when the application builds to static files that run in the browser. Framework features requiring a server runtime are outside this upload workflow."
+      ],
+      [
+        "Can I upload my source repository?",
+        "Upload the finished HTML, CSS, JavaScript, and assets. PBManager does not run a package install or build your source code as part of the site upload."
+      ],
+      [
+        "What happens if I remove the site?",
+        "Remove site deletes the managed static files while preserving PocketBase data. It does not delete the instance."
+      ]
+    ],
+    "related": [
+      "managed-pocketbase",
+      "custom-domains",
+      "for-developers"
+    ],
+    "closing": "Put a face on your database.",
+    "closing_description": "Host the static interface alongside the PocketBase it uses."
+  },
+  {
+    "slug": "custom-domains",
+    "title": "Custom domains and HTTPS",
+    "heading": [
+      "Your project.",
+      "Your address."
+    ],
+    "description": "Give your PocketBase instance a domain that belongs to your app or client. Follow ownership verification, DNS, and certificate progress in one place, with HTTPS handled by Caddy.",
+    "proof_title": "Know what your domain is waiting for.",
+    "proof_rows": [
+      [
+        "Ownership",
+        "Verify the supplied TXT record"
+      ],
+      [
+        "DNS",
+        "Point the hostname to the server"
+      ],
+      [
+        "Proxy",
+        "Configure the verified hostname"
+      ],
+      [
+        "HTTPS",
+        "Confirm a trusted certificate"
+      ]
+    ],
+    "proof_note": "Setup stages, not a live domain check. PBManager shows the current state for each domain.",
+    "benefit_title": "An address you recognize.\nA setup you can follow.",
+    "benefit_intro": "Keep the public name of your project separate from the mechanics of running its backend.",
+    "benefits": [
+      [
+        "Keep the default address too.",
+        "Attaching a customer domain does not replace the instance’s default address. You retain the original route while bringing your own hostname into use."
+      ],
+      [
+        "See the step that needs attention.",
+        "The manager separates a running service from a ready public URL. Check ownership, DNS, proxy configuration, certificate progress, and any visible errors before sharing the address."
+      ],
+      [
+        "Use the domain for the whole project.",
+        "The attached hostname serves the instance’s PocketBase routes and any static website you publish with it. Your frontend and database can share a recognizable address."
+      ]
+    ],
+    "steps_title": "Connect a domain in three steps.",
+    "steps": [
+      [
+        "Add the hostname.",
+        "Enter your customer domain when an instance is created, or add it from Domains & HTTPS on the instance detail page."
+      ],
+      [
+        "Update your DNS.",
+        "Use the server address and ownership TXT record shown by the manager. The hostname is routed only after ownership is verified."
+      ],
+      [
+        "Check the connection.",
+        "Use Check DNS & HTTPS to recheck progress. Background monitoring also checks the domain; certificate readiness is confirmed with a trusted TLS connection."
+      ]
+    ],
+    "note": "You need access to the domain’s DNS settings. DNS propagation and certificate issuance can take time; the dashboard shows the current stage rather than promising an instant switch.",
+    "faq": [
+      [
+        "Does adding a domain remove the default address?",
+        "No. The instance keeps its default address and its data when a customer domain is added or removed."
+      ],
+      [
+        "Does a running instance mean HTTPS is ready?",
+        "Not necessarily. PBManager tracks the service and public URL separately, so you can see when DNS or certificate setup still needs attention."
+      ],
+      [
+        "Can two projects use the same hostname?",
+        "Hostnames already reserved by other managed routes or Caddy sites cannot be assigned to another instance. Choose a distinct hostname for each destination."
+      ]
+    ],
+    "related": [
+      "managed-pocketbase",
+      "frontend-hosting",
+      "for-agencies"
+    ],
+    "closing": "Make the address your own.",
+    "closing_description": "Bring your domain. Follow the setup all the way to HTTPS."
+  },
+  {
+    "slug": "for-developers",
+    "title": "PocketBase hosting for developers and freelancers",
+    "heading": [
+      "Build the next thing.",
+      "Keep the backend simple."
+    ],
+    "description": "A small product, a client prototype, or an agent-built app still needs somewhere for its data to live. PBManager gives each project a PocketBase instance and puts the day-to-day hosting controls within reach.",
+    "proof_title": "A useful starting point for your next build.",
+    "proof_rows": [
+      [
+        "Product prototype",
+        "Collections for application data"
+      ],
+      [
+        "Browser-based tool",
+        "A static frontend beside the API"
+      ],
+      [
+        "Agent workflow",
+        "MCP access and persistent tasks"
+      ]
+    ],
+    "proof_note": "Illustrative use cases. Choose the storage, traffic, and access model your project needs.",
+    "benefit_title": "Get back to the part\nyou wanted to build.",
+    "benefit_intro": "Keep your application workflow familiar while giving its backend a home you can inspect.",
+    "benefits": [
+      [
+        "Start with the PocketBase you know.",
+        "Build around collections, authentication, file storage, and APIs. You can inspect the instance directly through PocketBase’s admin rather than learning a new database interface."
+      ],
+      [
+        "Give each idea its own space.",
+        "Keep a prototype separate from a client site or side project. Distinct instances have their own service, storage volume, and public address."
+      ],
+      [
+        "Let an agent help with the data work.",
+        "Connect through MCP to create collections, work with records, or leave a shared task for the next session. Tokens can be assigned to a single instance."
+      ]
+    ],
+    "steps_title": "A practical path from idea to project.",
+    "steps": [
+      [
+        "Define the first useful version.",
+        "Work out what your app needs to store, who needs access, and whether its frontend can ship as static files."
+      ],
+      [
+        "Request a place to run it.",
+        "Describe your project and expected usage. Hosting resources and pricing are agreed before access is arranged."
+      ],
+      [
+        "Build, inspect, and adjust.",
+        "Connect the app, publish its static frontend if appropriate, and use the manager’s resource views and logs to guide the next change."
+      ]
+    ],
+    "note": "MCP tokens have administrator access within their assigned instances. Application users should use the appropriate PocketBase authentication and API access rules; do not place agent tokens in browser code.",
+    "faq": [
+      [
+        "Is this useful for a client prototype?",
+        "It can be a good fit when the project needs a PocketBase backend and a static frontend. Agree the resource needs, domain, ownership, and operating responsibilities before using it for client work."
+      ],
+      [
+        "Do I need to use AI agents?",
+        "No. MCP access is optional. You can build with PocketBase’s APIs and admin interface and use PBManager only for hosting operations."
+      ],
+      [
+        "Can I try the manager first?",
+        "The public dashboard demo lets you create, stop, and restart sample instances in your browser. It does not connect to live hosting or create a real database."
+      ]
+    ],
+    "related": [
+      "agents",
+      "frontend-hosting",
+      "self-hosting"
+    ],
+    "closing": "Your next project starts here.",
+    "closing_description": "Tell us what you are building and what its backend needs."
+  },
+  {
+    "slug": "for-agencies",
+    "title": "PocketBase hosting for agencies",
+    "heading": [
+      "Several client projects.",
+      "One clear workspace."
+    ],
+    "description": "Keep independent PocketBase projects organized in one administrator dashboard. Separate databases, customer domains, and per-instance resource visibility help your team operate the backends behind its client work.",
+    "proof_title": "A workspace for distinct client projects.",
+    "proof_rows": [
+      [
+        "Client portal",
+        "Own instance and customer domain"
+      ],
+      [
+        "Campaign website",
+        "Static files with a separate database"
+      ],
+      [
+        "Internal tool",
+        "Dedicated instance and agent access"
+      ]
+    ],
+    "proof_note": "Example project mix. These are illustrative workloads, not customer endorsements.",
+    "benefit_title": "Keep the projects separate.\nKeep their operations visible.",
+    "benefit_intro": "A working overview for the person responsible for hosting, with a direct path into each instance.",
+    "benefits": [
+      [
+        "Give each client a separate instance.",
+        "Each project has its own service, Linux account, bounded storage, and address. Assign customer domains to the matching instance and inspect its data through PocketBase."
+      ],
+      [
+        "Follow usage project by project.",
+        "See storage, memory, CPU, and traffic across the workspace. Inspect an individual service’s logs or restart that instance from its detail page."
+      ],
+      [
+        "Scope automated work to its destination.",
+        "Create a named MCP token for a particular instance when an agent needs to help with a client project. Shared tasks can carry a description, assignee, and instance association."
+      ]
+    ],
+    "steps_title": "Bring some order to client hosting.",
+    "steps": [
+      [
+        "Map out the projects.",
+        "List each backend, frontend, domain, expected usage, and who is responsible for operating it."
+      ],
+      [
+        "Provision separate instances.",
+        "An administrator creates the instances and sets resource limits. Add customer domains and follow each domain’s verification and HTTPS progress."
+      ],
+      [
+        "Establish the day-to-day workflow.",
+        "Use the manager for service operations, PocketBase for application data, and scoped access for approved agent work or website file updates."
+      ]
+    ],
+    "note": "PBManager is an administrator workspace. It does not currently provide client billing, customer self-service accounts, or team role-based access controls. Instances share host infrastructure; resource limits are not dedicated server reservations.",
+    "faq": [
+      [
+        "Can clients sign into a billing portal?",
+        "There is no customer billing or self-service portal in the current application. Hosting access and commercial arrangements are handled separately."
+      ],
+      [
+        "Does every project need a separate server?",
+        "PBManager can operate multiple independent PocketBase instances on one host. The host still has finite storage, memory, and compute, so plan the allocation around the actual workloads."
+      ],
+      [
+        "Can I run this on infrastructure we manage?",
+        "Yes. The repository includes a VPS deployment guide and installation scripts. Your team then owns the infrastructure, updates, backups, and operating process."
+      ]
+    ],
+    "related": [
+      "custom-domains",
+      "self-hosting",
+      "agents"
+    ],
+    "closing": "Give every client project a home.",
+    "closing_description": "Discuss the projects, domains, and resources your workspace needs."
+  },
+  {
+    "slug": "self-hosting",
+    "title": "Self-host PocketBase Manager",
+    "heading": [
+      "Your infrastructure.",
+      "Your hosting workspace."
+    ],
+    "description": "Run PBManager on your own Linux VPS and manage your PocketBase instances from one place. Use the same dashboard, domain workflow, static site publishing, and MCP access on infrastructure you operate.",
+    "proof_title": "The pieces behind your workspace.",
+    "proof_rows": [
+      [
+        "Go + PocketBase",
+        "Manager and stored metadata"
+      ],
+      [
+        "Linux services",
+        "Per-instance systemd services"
+      ],
+      [
+        "Caddy",
+        "Routing and HTTPS"
+      ],
+      [
+        "Astro",
+        "Administrator dashboard"
+      ]
+    ],
+    "proof_note": "Current deployment target: Linux amd64 with systemd and support for loop-mounted ext4 volumes.",
+    "benefit_title": "Bring the server.\nKeep the workspace.",
+    "benefit_intro": "Choose self-hosting when controlling and operating the infrastructure is part of your plan.",
+    "benefits": [
+      [
+        "Operate your instances together.",
+        "Provision instances, set resource limits, inspect usage, and control services from the dashboard. The manager and a separate root agent handle different parts of the operating workflow."
+      ],
+      [
+        "Use the same paths for apps and agents.",
+        "Publish static websites, attach customer domains, and connect MCP clients to your manager’s /mcp endpoint. Agent access remains tied to the instances assigned to its token."
+      ],
+      [
+        "Make the operating decisions yourself.",
+        "Choose the host, DNS configuration, monitoring approach, backup process, and release schedule. The repository documents building, installation, and service checks."
+      ]
+    ],
+    "steps_title": "Start with the deployment guide.",
+    "steps": [
+      [
+        "Prepare a compatible VPS.",
+        "Use a Linux amd64 host with systemd and loop-mounted ext4 support. Configure DNS and network access, and follow the guide’s current disk and memory requirements."
+      ],
+      [
+        "Build and install the release.",
+        "Follow the repository instructions to build the frontend and Go services, upload the release, install Caddy, and configure the manager."
+      ],
+      [
+        "Sign in and operate your workspace.",
+        "Create your first instance and check its service and HTTPS status. Establish backups, monitoring, and an update process appropriate to your applications."
+      ]
+    ],
+    "note": "Self-hosting makes you the infrastructure operator. Keep the encryption key stable, protect administrator access, and maintain the server and backup process. The current installer is not a generic container or ARM deployment.",
+    "faq": [
+      [
+        "Do I have to use Hetzner?",
+        "No. The deployment scripts live under deployment/hetzner, but the documented workflow can be used with other compatible VPS providers. Check the Linux, architecture, systemd, and volume requirements."
+      ],
+      [
+        "Does self-hosting include a managed operations service?",
+        "No. You run the infrastructure and own its operational responsibilities. If you want managed hosting instead, send a hosting request with your requirements."
+      ],
+      [
+        "Can agents connect to a self-hosted manager?",
+        "Yes. Use your manager’s domain followed by /mcp and create an agent token in Agents & MCP. A token grants administrator read/write access to its assigned PocketBase instances."
+      ]
+    ],
+    "related": [
+      "managed-pocketbase",
+      "for-agencies",
+      "agents"
+    ],
+    "closing": "Put the workspace on your server.",
+    "closing_description": "Follow the build, installation, and verification steps in the repository.",
+    "primary_label": "Read the deployment guide",
+    "primary_href": "https://github.com/jagdishjadeja/pbmanager#deploy-on-your-own-vps"
+  }
+]
